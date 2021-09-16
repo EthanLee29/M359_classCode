@@ -37,7 +37,7 @@ public class Pizza {
         //if it isn't, then the string is null and you can't concatenate with it
         //build up the string using += to keep adding on
         str += "Store " + store + "\n";
-        str += "Size:" + inches + " inches, Num toppings: " + numToppings + "\n";
+        str += "Size: " + inches + " inches, Num toppings: " + numToppings + "\n";
 
         if(isDeepDish) {
             str += "Deep dish pizza";
