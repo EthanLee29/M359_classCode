@@ -36,7 +36,7 @@ public class Pizza {
         String str = "";    // the string must be set to "" in order to use +=
         //if it isn't, then the string is null and you can't concatenate with it
         //build up the string using += to keep adding on
-        str += "Store " + store + "\n";
+        str += "Store: " + store + "\n";
         str += "Size: " + inches + " inches, Num toppings: " + numToppings + "\n";
 
         if(isDeepDish) {
@@ -81,5 +81,26 @@ public class Pizza {
         isDeepDish = deepDish;
     }
 
+    // .equals method returns true if both pizzas are equivalent, false otherwise
+    // CHEAT FOR RIGHT NOW: if two pizzas are the same size they are equivalent
 
+    public boolean equals(Pizza other) {
+    /*  same thing but longer
+        if (this.inches == other.inches) {
+            return true;
+        } else {
+            return false;
+        }*/
+
+        return (this.inches == other.inches);
+    }
+
+    //compareTo method: returns negative if this comes before the other.
+    //                  returns positive if this comes after other.
+    //                  returns zero if this and other are the same.
+    //sort by inches
+
+    public int compareTo(Pizza other) {
+        return (this.inches - other.inches);
+    }
 }
