@@ -60,22 +60,22 @@ public class Chevy {
 
     public String toString() {
         String str = "";
-        str += "\t" + year + " " + MAKE + " " + model + "(" + color + ")\n";
-        str += "\t\tPRICE:\t\t$" + price + "\n";
-        str += "\t\tMILES:\t\t" + mileage + "\n";
-        str += "\t\tFUEL EFFICIENCY:\t" + fuelEff + " mpg\n";
-        str += "\t\tPACKAGES:\n";
+        str += year + " " + MAKE + " " + model + " (" + color + ")\n";
+        str += "\tPRICE:\t\t\t\t$" + this.calcPrice() + "\n";
+        str += "\tMILES:\t\t\t\t" + mileage + "\n";
+        str += "\tFUEL EFFICIENCY:\t" + fuelEff + " mpg\n";
+        str += "\tPACKAGES:\n";
         if(luxPackStatus) {
-            str += "\t\t\t-Luxury Package\n";
+            str += "\t\t-Luxury Package\n";
         }
         if(pack4WDStatus) {
-            str += "\t\t\t-4WD Package\n";
+            str += "\t\t-4WD Package\n";
         }
         if(sportsPackStatus) {
-            str += "\t\t\t-Sports Package\n";
+            str += "\t\t-Sports Package\n";
         }
         if(!luxPackStatus && !pack4WDStatus && !sportsPackStatus) {
-            str += "\t\t\t-None";
+            str += "\t\t-None";
         }
         return str;
     }
@@ -89,7 +89,7 @@ public class Chevy {
             pricePreTax += PACK_4WD_PRICE_INC;
         }
         if(sportsPackStatus) {
-            pricePreTax += this.price * SPORTS_PACK_PRICE_INC;
+            pricePreTax += pricePreTax * SPORTS_PACK_PRICE_INC;
             fuelEff -= fuelEff * FUEL_EFF_DEC;
         }
         return pricePreTax + (pricePreTax * TAX_RATE);
