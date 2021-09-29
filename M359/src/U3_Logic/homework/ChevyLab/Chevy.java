@@ -18,7 +18,7 @@ public class Chevy {
     private final double LP_PRICE_INC = 0.2;
     private final int PACK_4WD_PRICE_INC = 3500;
     private final double SPORTS_PACK_PRICE_INC = 0.15;
-    private final double FUEL_EFF_DEC = 0.20;
+    private final double FUEL_EFF_DED = 0.20;
 
     public Chevy() {
         year = 2021;
@@ -90,9 +90,9 @@ public class Chevy {
         }
         if(sportsPackStatus) {
             pricePreTax += this.price * SPORTS_PACK_PRICE_INC;
-            fuelEff -= fuelEff * FUEL_EFF_DEC;
+            fuelEff -= fuelEff * FUEL_EFF_DED;
         }
-        return pricePreTax + (pricePreTax * TAX_RATE);
+        return (pricePreTax + pricePreTax * TAX_RATE);
     }
 
     public int getYear() {
@@ -188,6 +188,6 @@ public class Chevy {
     }
 
     public double getFUEL_EFF_DEC() {
-        return FUEL_EFF_DEC;
+        return FUEL_EFF_DED;
     }
 }
