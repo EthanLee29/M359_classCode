@@ -89,7 +89,7 @@ public class Chevy {
             pricePreTax += PACK_4WD_PRICE_INC;
         }
         if(sportsPackStatus) {
-            pricePreTax += pricePreTax * SPORTS_PACK_PRICE_INC;
+            pricePreTax += this.price * SPORTS_PACK_PRICE_INC;
             fuelEff -= fuelEff * FUEL_EFF_DEC;
         }
         return pricePreTax + (pricePreTax * TAX_RATE);

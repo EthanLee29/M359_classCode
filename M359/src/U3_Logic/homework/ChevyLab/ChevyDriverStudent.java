@@ -16,6 +16,9 @@ public class ChevyDriverStudent {
                 "Corvette (Classic)", "Fire Red", true, false, false);
         Chevy corvetteSport2 = new Chevy(2020, 1500, 18.5, 58900, "Corvette (Sport)",
                 "Fire Red", true, false, true);
+        Chevy moonTesla = new Chevy(2021, 2000, 0, 69420, "Not a Chevy", "Silver",
+                true, true, true);
+
 
 
 
@@ -60,5 +63,6 @@ public class ChevyDriverStudent {
         System.out.println(bluesilverado);
         System.out.println(corvetteClassic2);
         System.out.println(corvetteSport2);
+        System.out.println(moonTesla);
     }
 }
