@@ -19,10 +19,6 @@ public class ChevyDriverStudent {
         Chevy moonTesla = new Chevy(2021, 2000, 0, 69420, "Not a Chevy", "Silver",
                 true, true, true);
 
-
-
-
-
         // *** UTILIZE SETTER METHODS TO COMPLETE THE FOLLOWING: ***
         // Set traxBase mileage to 15
         traxBase.setMileage(15);
