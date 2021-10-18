@@ -17,7 +17,7 @@ public class PigLatin {
             }
             translated = str.substring(counter) + str.substring(0, counter) + "ay";
         }
-s        return translated;
+        return translated;
     }
 
     public static String toPigLatin (String str) {
@@ -37,10 +37,14 @@ s        return translated;
     }
 
     public static int ruleCheck (String str, int num) {
-        if (str.charAt(num) == 'a' || str.charAt(num) == 'e' || str.charAt(num) == 'i' || str.charAt(num) == 'o' ||
-        str.charAt(num) == 'u') {
+        boolean a = str.substring(num, num + 1).equalsIgnoreCase("a");
+        boolean e = str.substring(num, num + 1).equalsIgnoreCase("e");
+        boolean i = str.substring(num, num + 1).equalsIgnoreCase("i");
+        boolean o = str.substring(num, num + 1).equalsIgnoreCase("o");
+        boolean u = str.substring(num, num + 1).equalsIgnoreCase("u");
+        if (a || e || i || o || u) {
             return 1;
-        } else if (str.charAt(num) == 'y') {
+        } else if (str.substring(num, num + 1).equalsIgnoreCase("y")) {
             return 0;
         } else {
             return -1;
