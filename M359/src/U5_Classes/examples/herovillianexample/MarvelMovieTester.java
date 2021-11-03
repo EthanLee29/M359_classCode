@@ -8,13 +8,19 @@ public class MarvelMovieTester {
         Villian killmonger = new Villian("Killmonger", new Power("Vibranium stealage",
                 80.0));
 
-//        System.out.println(blackPanther);
-//        System.out.println(killmonger);
-//
-//        SuperHero shuri = new SuperHero("Shuri (sister)", bpPower);
-//        SuperHero arvind = new SuperHero("Arvind", new Power(bpPower.getName(),
-//                bpPower.getStrength()));
-//        System.out.println(shuri);
+        System.out.println(blackPanther);
+        System.out.println(killmonger);
+        System.out.println("Num Heroes: " + SuperHero.getNumHeroes());
+        System.out.println("Num Villains: " + Villian.getNumVillians());
+
+        SuperHero shuri = new SuperHero("Shuri (sister)", bpPower);
+        SuperHero arvind = new SuperHero("Arvind", new Power(bpPower.getName(),
+                bpPower.getStrength()));
+
+        System.out.println("Num Heroes: " + SuperHero.getNumHeroes());
+        System.out.println("Num Villains: " + Villian.getNumVillians());
+
+        System.out.println(shuri);
 //        System.out.println(arvind);
 //        shuri.updatePowerStrength(-45.0);
 //        System.out.println(blackPanther);

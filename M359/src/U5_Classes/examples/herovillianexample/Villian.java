@@ -3,10 +3,14 @@ package U5_Classes.examples.herovillianexample;
 public class Villian {
     private String name;
     private Power superPower;
+    private static int numVillians = 0;
+    private static double totalStrength = 0;
 
     public Villian(String name, Power superPower) {
         this.name = name;
         this.superPower = superPower;
+        numVillians++;
+        totalStrength += superPower.getStrength();
     }
 
     public String toString() {
@@ -20,6 +24,16 @@ public class Villian {
         //strength var
         double currPower = superPower.getStrength();
         superPower.setStrength(currPower + changeAmount);
+        totalStrength += changeAmount;
+    }
+
+    /**
+     * This method will calculate the average strength of the villians by finding
+     * totalStrength / numVillians
+     * @return average strength per villian
+     */
+    public static double getAverageStrength() {
+        return (double) totalStrength / numVillians;
     }
 
     public String getName() {
@@ -35,7 +49,18 @@ public class Villian {
     }
 
     public void setSuperPower(Power superPower) {
+        totalStrength -= this.superPower.getStrength();
+        totalStrength += superPower.getStrength();
+
         this.superPower = superPower;
+    }
+
+    public static int getNumVillians() {
+        return numVillians;
+    }
+
+    public static double getTotalStrength() {
+        return totalStrength;
     }
 }
 
