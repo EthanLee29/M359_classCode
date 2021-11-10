@@ -21,7 +21,7 @@ public class VideoGameTester {
         hours = input.nextInt();
         Player player1 = new Player(hours, name, minecraft);
 
-        battle(newAi, player1);
+        System.out.println(battle(newAi, player1));
         battleAgain(newAi, player1);
 
         System.out.println(Player.getAverageWins());
@@ -32,7 +32,7 @@ public class VideoGameTester {
 
         player1.setHours(hours);
 
-        battle(newAi, player1);
+        System.out.println(battle(newAi, player1));
         battleAgain(newAi, player1);
 
         System.out.println(Player.getAverageWins());
@@ -98,9 +98,11 @@ public class VideoGameTester {
                 break;
             }
             if(battle(bot, p1).equals("Player wins!")){
+                System.out.println("Player wins!");
                 System.out.println("Would you like to go again?(Type yes or no)");
                 playAgain = input.nextLine();
             }else{
+                System.out.println("Ai wins!");
                 System.out.println("Would you like to go again?(Type yes or no)");
                 playAgain = input.nextLine();
             }
