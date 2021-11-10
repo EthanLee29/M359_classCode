@@ -3,10 +3,16 @@ package U5_Classes.lab;
 public class Ai {
     private VideoGame vG;
     private String difficulty; // easy, medium, hard
+    public static int numAIRounds = 0;
+    public static int numAiWins= 0;
 
     public Ai (VideoGame vG, String difficulty) {
         this.vG = vG;
         this.difficulty = difficulty;
+    }
+
+    public static double getAverageWins () {
+        return (double) numAiWins / numAIRounds;
     }
 
     public VideoGame getvG() {
@@ -23,5 +29,13 @@ public class Ai {
 
     public void setDifficulty(String difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public static int getNumAIRounds() {
+        return numAIRounds;
+    }
+
+    public static int getNumAiWins() {
+        return numAiWins;
     }
 }
