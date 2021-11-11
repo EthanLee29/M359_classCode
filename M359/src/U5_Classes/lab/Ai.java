@@ -11,6 +11,10 @@ public class Ai {
         this.difficulty = difficulty;
     }
 
+    /**
+     * This method returns the average wins of all the Ais
+     * @return
+     */
     public static double getAverageWins () {
         return (double) numAiWins / numAIRounds;
     }

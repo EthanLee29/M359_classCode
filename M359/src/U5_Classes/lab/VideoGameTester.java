@@ -24,8 +24,8 @@ public class VideoGameTester {
         System.out.println(battle(newAi, player1));
         battleAgain(newAi, player1);
 
-        System.out.println(Player.getAverageWins());
-        System.out.println(Ai.getAverageWins());
+        System.out.println("Average players wins: " + Player.getAverageWins());
+        System.out.println("Average Ai wins: " + Ai.getAverageWins());
 
         System.out.println("How many hours have you played for?");
         hours = input.nextInt();
@@ -35,8 +35,8 @@ public class VideoGameTester {
         System.out.println(battle(newAi, player1));
         battleAgain(newAi, player1);
 
-        System.out.println(Player.getAverageWins());
-        System.out.println(Ai.getAverageWins());
+        System.out.println("Average players wins: " + Player.getAverageWins());
+        System.out.println("Average Ai wins: " + Ai.getAverageWins());
     }
 
     /**This method creates a battle between an Ai and a player

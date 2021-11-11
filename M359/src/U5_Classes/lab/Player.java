@@ -13,6 +13,10 @@ public class Player {
         vG = vidGame;
     }
 
+    /**
+     * This method returns the average wins of all the Players
+     * @return
+     */
     public static double getAverageWins () {
         return (double) numPWins / numPRounds;
     }
