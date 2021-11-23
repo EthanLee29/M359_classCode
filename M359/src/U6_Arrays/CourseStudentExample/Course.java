@@ -24,8 +24,24 @@ public class Course {
     }
 
     public String toString() {
+        int maxLen = 35;
         String str = "";
-        str = period + " " + teacherName + " " + subject + " " + currentGrade;
+        str = period + " " + teacherName;
+
+        if(teacherName.length() < 5)
+            str+= "\t";
+
+        str += " \t\t" + subject;
+        //We will print trailing spaces to make up the difference between
+        // the length of the subject and maxLen of 35 char
+
+        int subLen = subject.length();
+        int diff = maxLen - subLen;
+        for (int i = 0; i < diff; i++) {
+            str += " ";
+        }
+
+        str += " " + currentGrade;
         return str;
     }
 

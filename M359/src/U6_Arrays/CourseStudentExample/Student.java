@@ -26,6 +26,23 @@ public class Student {
         this.myClasses = myClasses;
     }
 
+    public String toString() {
+        String str = "";
+        str += "NAME:\t" + name + "\n";
+        //since we have a course toString we can call any Course object with .toString()
+        // and concatenate that with str to include that output with this toString()
+
+//        for (int i = 0; i < myClasses.length; i++) {
+//            str += myClasses[i].toString() + "\n";
+//        }
+
+        for (Course c: myClasses) {
+            str += c.toString() + "\n";
+        }
+
+        return str;
+    }
+
     public String getName() {
         return name;
     }

@@ -8,6 +8,8 @@ package U6_Arrays.CourseStudentExample;
 public class StudentTester {
     public static void main(String[] args) {
 
+        Student[] dennaAllStars = new Student[5];
+
         //Creating 8 Course objects to represent an 8 period day
         Course per1 = new Course ("Vlaming", "Strength and Conditioning", "A+", 1);
         Course per2 = new Course ("Denna", "Java - the best", "C-", 2);
@@ -21,10 +23,25 @@ public class StudentTester {
         //We can create a Course[] using an initializer list with these 8 variables
         Course[] schedule = {per1, per2, per3, per4, per5, per6, per7, per8};
         Student lilDenna = new Student("Lil Denna", schedule);
+        Student khushi = new Student("Khushi", schedule);
+
+        System.out.println(lilDenna);
+
+        dennaAllStars[0] = lilDenna;
+        dennaAllStars[1] = khushi;
+        dennaAllStars[2] = new Student("Nate", schedule);
+        dennaAllStars[3] = new Student("Lil Guatham", schedule);
+
+        for (Student s: dennaAllStars) {
+            if (s != null)
+                System.out.println(s);
+        }
 
         //Print all Course objects in Course array using Course toString
-        for (int i = 0; i < schedule.length; i++) {
-            System.out.println(schedule[i]);
-        }
+//        for (int i = 0; i < schedule.length; i++) {
+//            System.out.println(schedule[i]);
+//        }
+
+
     }
 }
