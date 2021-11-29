@@ -26,11 +26,12 @@ public class BasicFilReadingExample {
         //add "throws" clause to the main method header stating that
         // we are aware this could throw a FileNotFoundException
         // this is required unless we use a try/catch block
+
         Scanner fileIn = new Scanner(new File("dataFile.txt"));
         String name = fileIn.nextLine();    //Ethan
-        int num = fileIn.nextInt();     //29
-        fileIn.nextLine();  //Dummy read to clear end of line
-        String phrase = fileIn.nextLine(); //Thankful for my family
+        int num = fileIn.nextInt();         //29
+        fileIn.nextLine();                  //Dummy read to clear end of line
+        String phrase = fileIn.nextLine();  //Thankful for my family
 
         System.out.println(name + " " + num + " " + phrase);
     }
