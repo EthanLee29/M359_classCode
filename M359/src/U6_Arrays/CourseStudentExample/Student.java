@@ -43,6 +43,15 @@ public class Student {
         return str;
     }
 
+    /**
+     * This allows us to set one period in a Student schedule
+     * @param per
+     * @param c
+     */
+    public void setOneCourse(int per, Course c) {
+        myClasses[per - 1] = c;     //subtract 1 to match the correct index
+    }
+
     public String getName() {
         return name;
     }
@@ -58,4 +67,6 @@ public class Student {
     public void setMyClasses(Course[] myClasses) {
         this.myClasses = myClasses;
     }
+
+
 }

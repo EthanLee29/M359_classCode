@@ -13,14 +13,14 @@ public class StudentTester {
     public static void main(String[] args) throws FileNotFoundException {
 
         // Here we are reading in data for ONE Course object
-        Scanner oneCourseFile = new Scanner(new File("oneCourse.txt"));
-        String teacher = oneCourseFile.nextLine();
-        String courseName = oneCourseFile.nextLine();
-        String grade = oneCourseFile.nextLine();
-        int period = oneCourseFile.nextInt();
-
-        Course myCourse = new Course (teacher, courseName, grade, period);
-        System.out.println(myCourse);
+//        Scanner oneCourseFile = new Scanner(new File("oneCourse.txt"));
+//        String teacher = oneCourseFile.nextLine();
+//        String courseName = oneCourseFile.nextLine();
+//        String grade = oneCourseFile.nextLine();
+//        int period = oneCourseFile.nextInt();
+//
+//        Course myCourse = new Course (teacher, courseName, grade, period);
+//        System.out.println(myCourse);
 
         //Here we are reading in data for an entire Student object
         Scanner oneScheduleFile = new Scanner (new File("OneSchedule.txt"));
@@ -36,7 +36,17 @@ public class StudentTester {
             String c = oneScheduleFile.nextLine();
             String g = oneScheduleFile.nextLine();
             int p = oneScheduleFile.nextInt();
+
+            //checking to see if more data exists
+            if(oneScheduleFile.hasNextLine()) {
+                oneScheduleFile.nextLine();     //dummy read
+            }
+
+            //create a Course object, add to array
+            Course course = new Course(t, c, g, p);
+            student.setOneCourse(p, course);
         }
+        System.out.println(student);
 
 //        Student[] dennaAllStars = new Student[5];
 //
