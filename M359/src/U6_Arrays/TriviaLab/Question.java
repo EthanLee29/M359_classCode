@@ -28,7 +28,7 @@ public class Question {
     public String toString() {
         String str = "";
         str += q + "\n";
-        str += a + "\n" + b + "\n" + c + "\n" + d + "\n";
+        str += "\t" + a + "\n\t" + b + "\n\t" + c + "\n\t" + d + "\n\t";
 
         return str;
     }

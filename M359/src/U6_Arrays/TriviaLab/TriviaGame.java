@@ -35,11 +35,22 @@ public class TriviaGame {
         }
     }
 
-    public void updateScore(int ind) {
+    public void readAnswer(String answer, Question q) {
+        correct = answer.equalsIgnoreCase(q.getCorrectAns());
         if(correct) {
-            currScore += questions[ind].getValue();
+            currScore += q.getValue();
+            System.out.println("Correct! Current score: " + currScore);
         }else {
-            currScore -= questions[ind].getValue();
+            currScore -= q.getValue();
+            System.out.println("Incorrect. Current score: " + currScore);
         }
+    }
+
+    public Question[] getQuestions() {
+        return questions;
+    }
+
+    public int getCurrScore() {
+        return currScore;
     }
 }
