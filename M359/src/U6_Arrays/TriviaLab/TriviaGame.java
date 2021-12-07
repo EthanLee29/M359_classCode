@@ -46,6 +46,14 @@ public class TriviaGame {
         }
     }
 
+    public void play() {
+        int[] used = new int[12];
+        int rand = (int)Math.random() * 11;
+        for (int i = 0; i < 12; i++) {
+            readAnswer(questions[rand].getCorrectAns(), questions[rand]);
+        }
+    }
+
     public Question[] getQuestions() {
         return questions;
     }

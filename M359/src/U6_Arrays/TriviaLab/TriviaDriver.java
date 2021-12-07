@@ -24,19 +24,7 @@ public class TriviaDriver {
 
         System.out.println();
 
-        String que = labFile.nextLine();
-        String mcA = labFile.nextLine();
-        String mcB = labFile.nextLine();
-        String mcC = labFile.nextLine();
-        String mcD = labFile.nextLine();
-        String ans = labFile.nextLine();
-        int pts = labFile.nextInt();
+        newGame.readQuestion();
 
-        Question q = new Question(que, mcA, mcB, mcC, mcD, ans, pts);
-
-        System.out.println(q);
-
-        String answer = input.nextLine();
-        newGame.readAnswer(answer, q);
     }
 }
