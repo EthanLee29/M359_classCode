@@ -33,6 +33,16 @@ public class Question {
         return str;
     }
 
+    /**
+     * This method is used to check if two questions are the same. It's only necessary to
+     * check for the q variable because no two questions ask the same thing
+     * @param other other question
+     * @return true if the questions are equal, false otherwise
+     */
+    public boolean equals(Question other) {
+        return (this.getQ().equals(other.getQ()));
+    }
+
     public String getQ() {
         return q;
     }

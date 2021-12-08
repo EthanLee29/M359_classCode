@@ -6,11 +6,10 @@ import java.util.Scanner;
 
 public class TriviaDriver {
     public static void main(String[] args) throws FileNotFoundException {
-        Scanner labFile = new Scanner(new File("lab.txt"));
 
         TriviaGame newGame = new TriviaGame();
 
-        //newGame.readQuestion();
+        newGame.readQuestion();
 
         Scanner input = new Scanner(System.in);
 
@@ -24,7 +23,14 @@ public class TriviaDriver {
 
         System.out.println();
 
-        newGame.readQuestion();
+        newGame.play();
 
+        String playAgain;
+        System.out.println("Would you like to continue?(Type yes or no)");
+        playAgain = input.nextLine();
+
+        while(playAgain.equalsIgnoreCase("yes")) {
+            newGame.play();
+        }
     }
 }

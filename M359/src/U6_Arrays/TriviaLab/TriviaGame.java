@@ -8,6 +8,9 @@ public class TriviaGame {
     private Question[] questions;
     private int currScore;
     private boolean correct;
+    Question[] used = new Question[12];
+    int count = 0;
+
 
     public TriviaGame() {
         currScore = 0;
@@ -47,10 +50,24 @@ public class TriviaGame {
     }
 
     public void play() {
-        int[] used = new int[12];
-        int rand = (int)Math.random() * 11;
-        for (int i = 0; i < 12; i++) {
-            readAnswer(questions[rand].getCorrectAns(), questions[rand]);
+        int rand = (int)(Math.random() * 11);
+        boolean notUsed = true;
+
+        if(count != 0) {
+            for (int i = 0; i < 12; i++) {
+                if(questions[rand].equals(used[i])) {
+                    notUsed = false;
+                }
+            }
+        }
+
+        if(notUsed) {
+            System.out.println(questions[rand]);
+            Scanner input = new Scanner(System.in);
+            String answer = input.nextLine();
+            readAnswer(answer, questions[rand]);
+            used[count] = questions[rand];
+            count++;
         }
     }
 
