@@ -30,7 +30,11 @@ public class TriviaDriver {
         playAgain = input.nextLine();
 
         while(playAgain.equalsIgnoreCase("yes")) {
+            System.out.println();
             newGame.play();
+
+            System.out.println("Would you like to continue?(Type yes or no)");
+            playAgain = input.nextLine();
         }
     }
 }

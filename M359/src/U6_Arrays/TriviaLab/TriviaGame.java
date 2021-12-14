@@ -8,7 +8,7 @@ public class TriviaGame {
     private Question[] questions;
     private int currScore;
     private boolean correct;
-    Question[] used = new Question[12];
+    int[] used = new int[12];
     int count = 0;
 
 
@@ -43,31 +43,38 @@ public class TriviaGame {
         if(correct) {
             currScore += q.getValue();
             System.out.println("Correct! Current score: " + currScore);
+            System.out.println();
         }else {
             currScore -= q.getValue();
             System.out.println("Incorrect. Current score: " + currScore);
+            System.out.println();
         }
     }
 
     public void play() {
-        int rand = (int)(Math.random() * 11);
-        boolean notUsed = true;
+        int rand;
+        boolean isUsed;
 
-        if(count != 0) {
-            for (int i = 0; i < 12; i++) {
-                if(questions[rand].equals(used[i])) {
-                    notUsed = false;
+        for (int i = 0; i < 11; i++) {
+            isUsed = false;
+            rand = (int)(Math.random() * 11);
+
+            for (int j = 0; j < 11; j++) {
+                if (rand == used[i]) {
+                    isUsed = true;
                 }
             }
-        }
+            if (isUsed == false) {
+                System.out.println(questions[rand]);
 
-        if(notUsed) {
-            System.out.println(questions[rand]);
-            Scanner input = new Scanner(System.in);
-            String answer = input.nextLine();
-            readAnswer(answer, questions[rand]);
-            used[count] = questions[rand];
-            count++;
+                Scanner input = new Scanner(System.in);
+                String answer = input.nextLine();
+                readAnswer(answer, questions[rand]);
+
+                used[count] = rand;
+                count++;
+                break;
+            }
         }
     }
 
