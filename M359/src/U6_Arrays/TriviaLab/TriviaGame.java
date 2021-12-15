@@ -8,8 +8,10 @@ public class TriviaGame {
     private Question[] questions;
     private int currScore;
     private boolean correct;
-    int[] used = new int[12];
+    int streak = 0;
+    int[] used = {13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13};
     int count = 0;
+    int amtCorr = 0;
 
 
     public TriviaGame() {
@@ -42,11 +44,23 @@ public class TriviaGame {
         correct = answer.equalsIgnoreCase(q.getCorrectAns());
         if(correct) {
             currScore += q.getValue();
-            System.out.println("Correct! Current score: " + currScore);
+            System.out.println("Correct!");
+            System.out.println("Points gained: " + q.getValue());
+            System.out.println("Current score: " + currScore);
+
+            streak++;
+            System.out.println("Current streak: " + streak);
             System.out.println();
+
+            amtCorr++;
         }else {
             currScore -= q.getValue();
-            System.out.println("Incorrect. Current score: " + currScore);
+            System.out.println("Incorrect. Correct answer: " + q.getCorrectAns());
+            System.out.println("Points lost: " + q.getValue());
+            System.out.println("Current score: " + currScore);
+
+            streak = 0;
+            System.out.println("Current streak: " + streak);
             System.out.println();
         }
     }
@@ -55,12 +69,12 @@ public class TriviaGame {
         int rand;
         boolean isUsed;
 
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < 12; i++) {
             isUsed = false;
             rand = (int)(Math.random() * 11);
 
-            for (int j = 0; j < 11; j++) {
-                if (rand == used[i]) {
+            for (int j = 0; j < 12; j++) {
+                if (rand == used[j]) {
                     isUsed = true;
                 }
             }
@@ -78,11 +92,15 @@ public class TriviaGame {
         }
     }
 
-    public Question[] getQuestions() {
-        return questions;
+    public int getAmtCorr() {
+        return amtCorr;
     }
 
     public int getCurrScore() {
         return currScore;
+    }
+
+    public int getCount() {
+        return count;
     }
 }

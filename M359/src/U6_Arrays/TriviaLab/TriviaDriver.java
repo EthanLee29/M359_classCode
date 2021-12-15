@@ -33,8 +33,19 @@ public class TriviaDriver {
             System.out.println();
             newGame.play();
 
+            if(newGame.getCount() == 11) {
+                System.out.println("Congratulations! You have reached the end of the game!");
+                break;
+            }
+
             System.out.println("Would you like to continue?(Type yes or no)");
             playAgain = input.nextLine();
         }
+
+        System.out.println("Congratulations!\nStats:");
+        System.out.println("\tScore: " + newGame.getCurrScore());
+        System.out.println("\tQuestions answered correctly: " + newGame.getAmtCorr());
+        double per = ((double) newGame.amtCorr / newGame.getCount()) * 100;
+        System.out.println("\tPercentage of questions answered correctly: " + per + "%");
     }
 }
