@@ -15,16 +15,11 @@ public class Question {
         this.value = value;
     }
 
-    public Question() {
-        q = "";
-        a = "";
-        b = "";
-        c = "";
-        d = "";
-        correctAns = "";
-        value = 0;
-    }
-
+    /**
+     * This method returns a question in a formatted String, with teh question
+     * itself and the answer choices
+     * @return string
+     */
     public String toString() {
         String str = "";
         str += q + "\n";
@@ -34,8 +29,9 @@ public class Question {
     }
 
     /**
-     * This method is used to check if two questions are the same. It's only necessary to
-     * check for the q variable because no two questions ask the same thing
+     * This method returns true if two questions are the same.
+     * It's only necessary to check for the q variable because no two
+     * questions ask the same thing.
      * @param other other question
      * @return true if the questions are equal, false otherwise
      */

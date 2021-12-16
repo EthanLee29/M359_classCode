@@ -11,7 +11,7 @@ B. Whales
 C. Dolphins
 D. Orcas
 B
-5
+10
 How does a starfish eat?
 A. With their jaws
 B. By extending their stomachs out of the oral cavity and capturing their prey
@@ -39,7 +39,7 @@ B. 5 seconds
 C. 3 minutes
 D. 10 minutes
 A
-5
+10
 Why do otters hold hands while sleeping?
 A. To avoid drifting away from each other
 B. To scare predators
