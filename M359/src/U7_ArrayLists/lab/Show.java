@@ -14,5 +14,12 @@ public class Show {
     }
 
     public String toString() {
+        String str = "";
+        str += date + "\t";
+        str += "$" + price + "\t";
+        str += qty + "\t" + artist;
+        str += "\t\t" + city;
+
+        return str;
     }
 }
