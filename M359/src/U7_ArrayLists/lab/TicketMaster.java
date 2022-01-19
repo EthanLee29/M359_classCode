@@ -6,9 +6,18 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TicketMaster {
-    private ArrayList<Show> showList = new ArrayList<>();
+    private ArrayList<Show> showList;
 
-    public void readShow() throws FileNotFoundException {
+    public TicketMaster() {
+        showList = new ArrayList<>();
+    }
+
+    /**
+     * This method will read in all data, make a show object, and add this object to the AL
+     * Repeats this until all data is read
+     * @throws FileNotFoundException
+     */
+    public void readData() throws FileNotFoundException {
         Scanner showInfo = new Scanner(new File("showData.txt"));
 
         String aDate = showInfo.next();
