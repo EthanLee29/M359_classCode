@@ -14,6 +14,7 @@ package U7_ArrayLists.examples;
  * Reverse the order of the elements
  */
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Algorithms_7_4 {
@@ -136,29 +137,41 @@ public class Algorithms_7_4 {
      */
     public static boolean hasDuplicates(ArrayList<String> list) {
         for (int i = 0; i < list.size(); i++) {
-            for (int j = 0; j < list.size(); j++) {
-
+            for (int j = i+ 1; j < list.size(); j++) {
+                  if (list.get(i).equals(list.get(j))) {
+                      return true;
+                  }
             }
         }
+        return false;
     }
-//
-//    /**
-//     * Creates a new ArrayList of Strings that is equal to the original ArrayList
-//     * in reverse order.  Original ArrayList is unchanged.
-//     * @param list
-//     * @return new ArrayList of Strings in reverse order
-//     */
-//    public static ArrayList<String> revArrayList(ArrayList<String> list) {
-//
-//    }
-//
-//    /**
-//     * Shifts all values in list to the Left and the value at index 0 is moved
-//     * to index list.size() - 1.
-//     * @param list
-//     */
-//    public static void shiftLeft(ArrayList<String> list) {
-//
-//    }
+
+    /**
+     * Creates a new ArrayList of Strings that is equal to the original ArrayList
+     * in reverse order.  Original ArrayList is unchanged.
+     * @param list
+     * @return new ArrayList of Strings in reverse order
+     */
+    public static ArrayList<String> revArrayList(ArrayList<String> list) {
+        ArrayList<String> newList = new ArrayList<>();
+        for (int i = list.size(); i >= 0; i++) {
+            newList.add(list.get(i));
+        }
+
+        return newList;
+
+//        for (String s: list) {
+//            newList.add(0, s);
+//        }
+    }
+
+    /**
+     * Shifts all values in list to the Left and the value at index 0 is moved
+     * to index list.size() - 1.
+     * @param list
+     */
+    public static void shiftLeft(ArrayList<String> list) {
+        list.add(list.remove(0));
+    }
 
 }

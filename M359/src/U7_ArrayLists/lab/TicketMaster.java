@@ -9,7 +9,7 @@ public class TicketMaster {
     private ArrayList<Show> showList;
 
     public TicketMaster() {
-        showList = new ArrayList<>();
+        showList  = new ArrayList<>();
     }
 
     /**
@@ -20,17 +20,29 @@ public class TicketMaster {
     public void readData() throws FileNotFoundException {
         Scanner showInfo = new Scanner(new File("showData.txt"));
 
-        String aDate = showInfo.next();
-        double aPrice = showInfo.nextDouble();
-        int aQty = showInfo.nextInt();
+        for (int i = 0; i < 24; i++) {
+            String aDate = showInfo.next();
+            double aPrice = showInfo.nextDouble();
+            int aQty = showInfo.nextInt();
 
-        String name = showInfo.next();
-        int indOfComma = name.length() - 1;
-        name = name.substring(0, indOfComma);
+            String str = showInfo.nextLine();
+            int loc = str.indexOf(",");
+            String name = str.substring(1, loc);
 
-        String aCity = showInfo.next();
+            String aCity = str.substring(loc + 1);
 
-        Show s = new Show(aDate, aPrice, aQty, name, aCity);
-        showList.add(s);
+            Show s = new Show(aDate, aPrice, aQty, name, aCity);
+            showList.add(s);
+        }
+    }
+
+    public String toString() {
+        String str = "";
+
+        for (Show s: showList) {
+            str += s + "\n";
+        }
+
+        return str;
     }
 }

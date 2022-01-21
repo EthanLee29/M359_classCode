@@ -16,9 +16,20 @@ public class Show {
     public String toString() {
         String str = "";
         str += date + "\t";
-        str += "$" + price + "\t";
-        str += qty + "\t" + artist;
-        str += "\t\t" + city;
+        str += "$" + price + "\t\t";
+        str += qty + "\t\t" + artist;
+
+        if (artist.length() < 8) {
+            str += "\t\t\t\t";
+        }else if (artist.length() < 12){
+            str += "\t\t\t";
+        } else if (artist.length() < 16){
+            str += "\t\t";
+        } else {
+            str += "\t";
+        }
+
+        str += city;
 
         return str;
     }
