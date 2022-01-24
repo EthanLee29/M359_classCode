@@ -20,7 +20,7 @@ public class TicketMaster {
     public void readData() throws FileNotFoundException {
         Scanner showInfo = new Scanner(new File("showData.txt"));
 
-        for (int i = 0; i < 24; i++) {
+        while (showInfo.hasNextLine()) {
             String aDate = showInfo.next();
             double aPrice = showInfo.nextDouble();
             int aQty = showInfo.nextInt();
@@ -44,5 +44,19 @@ public class TicketMaster {
         }
 
         return str;
+    }
+
+    public void display() {
+        System.out.println("\t\t\t\t\t**** Welcome to the Ticket Master Kiosk ****");
+        System.out.println("You may search our shows by city as well as sort the shows by " +
+                "performer and ticket price");
+        System.out.println("\t\t\tSimply select the correct option corresponding with your choice");
+        System.out.println();
+        System.out.println("1. Search by City");
+        System.out.println("2. Sort by Performer (A-Z)");
+        System.out.println("3. Sort by Performer (Z-A)");
+        System.out.println("4. Sort by Price (low - high");
+        System.out.println("5. Sort by Price (high - low)");
+        System.out.println("6. Quit");
     }
 }
