@@ -58,5 +58,6 @@ public class TicketMaster {
         System.out.println("4. Sort by Price (low - high");
         System.out.println("5. Sort by Price (high - low)");
         System.out.println("6. Quit");
+        System.out.println();
     }
 }

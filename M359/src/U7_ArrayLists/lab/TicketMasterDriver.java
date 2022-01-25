@@ -25,17 +25,25 @@ public class TicketMasterDriver {
 
          after you have a good choice, in desired range, return this value
          */
-        try {
-            System.out.println(input);
-            if(input.nextInt() > 6 || input.nextInt() < 1) {
-                System.out.println("Enter a value within the range 1-6");
+        boolean tryAgain = true;
+        while (tryAgain) {
+            try {
+                System.out.println(input);
+                int num = input.nextInt();
+                if(num > 6 || num < 1) {
+                    System.out.println("Enter a value within the range 1-6");
+                } else if (num <= 6 || num >= 1) {
+                    tryAgain = false;
+                }
             }
-        }
-        catch (InputMismatchException e) {
-            System.out.println("Invalid input. Enter an integer 1-6");
-        }
-        catch (Exception e) {
-            System.out.println("Enter an integer 1-6");
+            catch (InputMismatchException e) {
+                System.out.println("Invalid input. Enter an integer 1-6");
+                input.nextLine();
+            }
+            catch (Exception e) {
+                System.out.println("Enter an integer 1-6");
+                input.nextLine();
+            }
         }
         return input;
     }
