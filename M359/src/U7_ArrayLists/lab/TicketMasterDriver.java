@@ -6,16 +6,24 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TicketMasterDriver {
-    public final int city = 1;
+    public final int CITY = 1;
+    public final int PERF_A_Z = 2;
+    public final int PERF_Z_A = 3;
+    public final int PRICE_L_H = 4;
+    public final int PRICE_H_L = 5;
+    public final int QUIT = 6;
+
     public static void main(String[] args) throws FileNotFoundException {
         TicketMaster tMaster = new TicketMaster();
         tMaster.readData();
         //System.out.println(tMaster);
         tMaster.display();
 
-        Scanner i = new Scanner(System.in);
-        System.out.println("Enter a value (1-6)");
-        getUserChoice(i);
+//        Scanner i = new Scanner(System.in);
+//        getUserChoice(i);
+
+        tMaster.byCity("Chicago");
+        tMaster.byCity("yuh");
     }
     public static int getUserChoice(Scanner input) {
         /*
@@ -31,6 +39,7 @@ public class TicketMasterDriver {
         boolean tryAgain = true;
         while(tryAgain) {
             try {
+                System.out.println("Enter a value (1-6)");
                 choice = input.nextInt();
                 if(choice > 6 || choice < 1) {
                     System.out.println("Enter a value within the range 1-6");

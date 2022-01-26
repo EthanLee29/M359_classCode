@@ -29,7 +29,7 @@ public class TicketMaster {
             int loc = str.indexOf(",");
             String name = str.substring(1, loc);
 
-            String aCity = str.substring(loc + 1);
+            String aCity = str.substring(loc + 2);
 
             Show s = new Show(aDate, aPrice, aQty, name, aCity);
             showList.add(s);
@@ -58,5 +58,24 @@ public class TicketMaster {
         System.out.println("4. Sort by Price (low - high");
         System.out.println("5. Sort by Price (high - low)");
         System.out.println("6. Quit");
+    }
+
+    public ArrayList<Show> byCity(String city) {
+        boolean hasCity = false;
+        for (int i = 0; i < showList.size(); i++) {
+            if (showList.get(i).getCity().equalsIgnoreCase(city)) {
+                hasCity = true;
+                System.out.println(showList.get(i));
+            }
+        }
+
+        if (!hasCity)
+            System.out.println("No shows are in that city");
+
+        return showList;
+    }
+
+    public ArrayList<Show> getShowList() {
+        return showList;
     }
 }
