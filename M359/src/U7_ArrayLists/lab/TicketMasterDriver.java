@@ -22,8 +22,8 @@ public class TicketMasterDriver {
 //        Scanner i = new Scanner(System.in);
 //        getUserChoice(i);
 
-        tMaster.byCity("Chicago");
-        tMaster.byCity("yuh");
+//        tMaster.byCity("Chicago");
+//        tMaster.byCity("Chucagah");
     }
     public static int getUserChoice(Scanner input) {
         /*

@@ -55,7 +55,7 @@ public class TicketMaster {
         System.out.println("1. Search by City");
         System.out.println("2. Sort by Performer (A-Z)");
         System.out.println("3. Sort by Performer (Z-A)");
-        System.out.println("4. Sort by Price (low - high");
+        System.out.println("4. Sort by Price (low - high)");
         System.out.println("5. Sort by Price (high - low)");
         System.out.println("6. Quit");
     }
@@ -73,6 +73,10 @@ public class TicketMaster {
             System.out.println("No shows are in that city");
 
         return showList;
+    }
+
+    public void aToZ() {
+
     }
 
     public ArrayList<Show> getShowList() {

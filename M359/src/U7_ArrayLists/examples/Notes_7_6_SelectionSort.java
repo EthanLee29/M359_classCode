@@ -12,6 +12,17 @@ public class Notes_7_6_SelectionSort {
         myNums.add(3);
         myNums.add(2);
 
+        System.out.println(myNums.toString());
+        selectionSort(myNums);
+        System.out.println(myNums.toString());
+
+        String apple = "apple";
+        String banana = "banana";
+        String doritos = "doritos";
+        System.out.println(apple.compareTo(banana));    //apple comes first alphabetically, ret neg val
+        System.out.println(banana.compareTo(apple));    //banana comes after, ret pos val
+        System.out.println(doritos.compareTo(apple));   // pos 3
+        System.out.println(apple.compareTo(apple));     //zero
     }
     public static void selectionSort(ArrayList<Integer> list) {
         // outer for loop starts at 0 goes until second to last index
