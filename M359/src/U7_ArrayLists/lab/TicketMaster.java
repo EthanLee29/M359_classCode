@@ -9,12 +9,13 @@ public class TicketMaster {
     private ArrayList<Show> showList;
 
     public TicketMaster() {
-        showList  = new ArrayList<>();
+        showList = new ArrayList<>();
     }
 
     /**
      * This method will read in all data, make a show object, and add this object to the AL
      * Repeats this until all data is read
+     *
      * @throws FileNotFoundException
      */
     public void readData() throws FileNotFoundException {
@@ -39,7 +40,7 @@ public class TicketMaster {
     public String toString() {
         String str = "";
 
-        for (Show s: showList) {
+        for (Show s : showList) {
             str += s + "\n";
         }
 
@@ -58,6 +59,7 @@ public class TicketMaster {
         System.out.println("4. Sort by Price (low - high)");
         System.out.println("5. Sort by Price (high - low)");
         System.out.println("6. Quit");
+        System.out.println();
     }
 
     public ArrayList<Show> byCity(String city) {
@@ -75,8 +77,68 @@ public class TicketMaster {
         return showList;
     }
 
-    public void aToZ() {
+    public void aToZ(ArrayList<Show> list) {
+        for (int i = 0; i < list.size() - 1; i++) {
+            int min = i;
 
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(j).getArtist().compareTo(list.get(min).getArtist()) < 0) {
+                    min = j;
+                }
+            }
+
+            Show temp = list.get(i);
+            list.set(i, list.get(min));
+            list.set(min, temp);
+        }
+    }
+
+    public void zToA(ArrayList<Show> list) {
+        for (int i = 0; i < list.size() - 1; i++) {
+            int min = i;
+
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(j).getArtist().compareTo(list.get(min).getArtist()) > 0) {
+                    min = j;
+                }
+            }
+
+            Show temp = list.get(i);
+            list.set(i, list.get(min));
+            list.set(min, temp);
+        }
+    }
+
+    public void byPriceLow(ArrayList<Show> list) {
+        for (int i = 0; i < list.size() - 1; i++) {
+            int min = i;
+
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(j).getPrice() < list.get(min).getPrice()) {
+                    min = j;
+                }
+            }
+
+            Show temp = list.get(i);
+            list.set(i, list.get(min));
+            list.set(min, temp);
+        }
+    }
+
+    public void byPriceHigh(ArrayList<Show> list) {
+        for (int i = 0; i < list.size() - 1; i++) {
+            int min = i;
+
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(j).getPrice() > list.get(min).getPrice()) {
+                    min = j;
+                }
+            }
+
+            Show temp = list.get(i);
+            list.set(i, list.get(min));
+            list.set(min, temp);
+        }
     }
 
     public ArrayList<Show> getShowList() {

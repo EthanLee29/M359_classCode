@@ -24,6 +24,12 @@ public class TicketMasterDriver {
 
 //        tMaster.byCity("Chicago");
 //        tMaster.byCity("Chucagah");
+//        tMaster.aToZ(tMaster.getShowList());
+//        tMaster.zToA(tMaster.getShowList());
+//        tMaster.byPriceLow(tMaster.getShowList());
+//        tMaster.byPriceHigh(tMaster.getShowList());
+
+        //System.out.println(tMaster);
     }
     public static int getUserChoice(Scanner input) {
         /*
