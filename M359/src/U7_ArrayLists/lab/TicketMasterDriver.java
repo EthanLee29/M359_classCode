@@ -29,7 +29,7 @@ public class TicketMasterDriver {
 //        tMaster.byPriceLow(tMaster.getShowList());
 //        tMaster.byPriceHigh(tMaster.getShowList());
 
-        //System.out.println(tMaster);
+//        System.out.println(tMaster);
     }
     public static int getUserChoice(Scanner input) {
         /*
