@@ -110,34 +110,32 @@ public class TicketMaster {
     }
 
     public void byPriceLow(ArrayList<Show> list) {
-        for (int i = 0; i < list.size() - 1; i++) {
-            int min = i;
+        for (int i = 1; i < list.size(); i++) {
+            Show show = list.get(i);
+            double valueToInsert = list.get(i).getPrice();
+            int pos = i;
 
-            for (int j = i + 1; j < list.size(); j++) {
-                if (list.get(j).getPrice() < list.get(min).getPrice()) {
-                    min = j;
-                }
+            while (pos > 0 && list.get(pos - 1).getPrice() > valueToInsert) {
+                list.set(pos, list.get(pos - 1));
+                pos--;
             }
 
-            Show temp = list.get(i);
-            list.set(i, list.get(min));
-            list.set(min, temp);
+            list.set(pos, show);
         }
     }
 
     public void byPriceHigh(ArrayList<Show> list) {
-        for (int i = 0; i < list.size() - 1; i++) {
-            int min = i;
+        for (int i = 1; i < list.size(); i++) {
+            Show show = list.get(i);
+            double valueToInsert = list.get(i).getPrice();
+            int pos = i;
 
-            for (int j = i + 1; j < list.size(); j++) {
-                if (list.get(j).getPrice() > list.get(min).getPrice()) {
-                    min = j;
-                }
+            while (pos > 0 && list.get(pos - 1).getPrice() < valueToInsert) {
+                list.set(pos, list.get(pos - 1));
+                pos--;
             }
 
-            Show temp = list.get(i);
-            list.set(i, list.get(min));
-            list.set(min, temp);
+            list.set(pos, show);
         }
     }
 
