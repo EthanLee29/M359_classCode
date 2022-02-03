@@ -6,12 +6,12 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TicketMasterDriver {
-    public final int CITY = 1;
-    public final int PERF_A_Z = 2;
-    public final int PERF_Z_A = 3;
-    public final int PRICE_L_H = 4;
-    public final int PRICE_H_L = 5;
-    public final int QUIT = 6;
+    public static final int CITY = 1;
+    public static final int PERF_A_Z = 2;
+    public static final int PERF_Z_A = 3;
+    public static final int PRICE_L_H = 4;
+    public static final int PRICE_H_L = 5;
+    public static final int QUIT = 6;
 
     public static void main(String[] args) throws FileNotFoundException {
         TicketMaster tMaster = new TicketMaster();
@@ -19,8 +19,8 @@ public class TicketMasterDriver {
         //System.out.println(tMaster);
         tMaster.display();
 
-//        Scanner i = new Scanner(System.in);
-//        getUserChoice(i);
+        Scanner i = new Scanner(System.in);
+
 
 //        tMaster.byCity("Chicago");
 //        tMaster.byCity("Chucagah");
@@ -28,8 +28,9 @@ public class TicketMasterDriver {
 //        tMaster.zToA(tMaster.getShowList());
 //        tMaster.byPriceLow(tMaster.getShowList());
 //        tMaster.byPriceHigh(tMaster.getShowList());
+//        System.out.println(tMaster);
 
-        System.out.println(tMaster);
+        choices(getUserChoice(i), tMaster);
     }
     public static int getUserChoice(Scanner input) {
         /*
@@ -63,5 +64,40 @@ public class TicketMasterDriver {
             }
         }
         return choice;
+    }
+
+    public static void choices(int choice, TicketMaster tM) {
+        while (choice != QUIT) {
+            if (choice == CITY) {
+                System.out.println("Input city of choice");
+                Scanner s = new Scanner(System.in);
+                tM.byCity(s.next());
+                s.nextLine();
+                getUserChoice(s);
+            } else if (choice == PERF_A_Z) {
+                Scanner s = new Scanner(System.in);
+                tM.aToZ(tM.getShowList());
+                System.out.println(tM);
+                getUserChoice(s);
+            } else if (choice == PERF_Z_A) {
+                Scanner s = new Scanner(System.in);
+                tM.zToA(tM.getShowList());
+                System.out.println(tM);
+                getUserChoice(s);
+            }
+            if (choice == PRICE_L_H) {
+                Scanner s = new Scanner(System.in);
+                tM.byPriceLow(tM.getShowList());
+                System.out.println(tM);
+                getUserChoice(s);
+            }
+            if (choice == PRICE_H_L) {
+                Scanner s = new Scanner(System.in);
+                tM.byPriceHigh(tM.getShowList());
+                System.out.println(tM);
+                getUserChoice(s);
+            }
+        }
+        System.out.println("Thank you! Come again soon!");
     }
 }
