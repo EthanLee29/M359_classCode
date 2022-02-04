@@ -17,9 +17,10 @@ public class TicketMasterDriver {
         TicketMaster tMaster = new TicketMaster();
         tMaster.readData();
         //System.out.println(tMaster);
+        System.out.println("\t\t\t\t\t**** Welcome to the Ticket Master Kiosk ****");
         tMaster.display();
 
-        Scanner i = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
 
 
 //        tMaster.byCity("Chicago");
@@ -28,9 +29,9 @@ public class TicketMasterDriver {
 //        tMaster.zToA(tMaster.getShowList());
 //        tMaster.byPriceLow(tMaster.getShowList());
 //        tMaster.byPriceHigh(tMaster.getShowList());
-//        System.out.println(tMaster);
+        //System.out.println(tMaster);
 
-        choices(getUserChoice(i), tMaster);
+        choices(in, tMaster);
     }
     public static int getUserChoice(Scanner input) {
         /*
@@ -66,37 +67,30 @@ public class TicketMasterDriver {
         return choice;
     }
 
-    public static void choices(int choice, TicketMaster tM) {
+    public static void choices(Scanner s, TicketMaster tM) {
+        int choice = getUserChoice(s);
         while (choice != QUIT) {
             if (choice == CITY) {
                 System.out.println("Input city of choice");
-                Scanner s = new Scanner(System.in);
                 tM.byCity(s.next());
-                s.nextLine();
-                getUserChoice(s);
             } else if (choice == PERF_A_Z) {
-                Scanner s = new Scanner(System.in);
                 tM.aToZ(tM.getShowList());
                 System.out.println(tM);
-                getUserChoice(s);
             } else if (choice == PERF_Z_A) {
-                Scanner s = new Scanner(System.in);
                 tM.zToA(tM.getShowList());
                 System.out.println(tM);
-                getUserChoice(s);
-            }
-            if (choice == PRICE_L_H) {
-                Scanner s = new Scanner(System.in);
+            }else if (choice == PRICE_L_H) {
                 tM.byPriceLow(tM.getShowList());
                 System.out.println(tM);
-                getUserChoice(s);
-            }
-            if (choice == PRICE_H_L) {
-                Scanner s = new Scanner(System.in);
+            } else if (choice == PRICE_H_L) {
                 tM.byPriceHigh(tM.getShowList());
                 System.out.println(tM);
-                getUserChoice(s);
             }
+
+            System.out.println();
+            tM.display();
+            s.nextLine();
+            choice = getUserChoice(s);
         }
         System.out.println("Thank you! Come again soon!");
     }

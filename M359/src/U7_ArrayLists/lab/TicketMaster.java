@@ -40,6 +40,13 @@ public class TicketMaster {
     public String toString() {
         String str = "";
 
+        str += "Date\t\t" + "Price\t\t" + "Qty\t\t" + "Performer\t\t\t" + "City\n";
+        for (int i = 0; i < 70; i++) {
+            str += "-";
+        }
+
+        str += "\n";
+
         for (Show s : showList) {
             str += s + "\n";
         }
@@ -48,7 +55,6 @@ public class TicketMaster {
     }
 
     public void display() {
-        System.out.println("\t\t\t\t\t**** Welcome to the Ticket Master Kiosk ****");
         System.out.println("You may search our shows by city as well as sort the shows by " +
                 "performer and ticket price");
         System.out.println("\t\t\tSimply select the correct option corresponding with your choice");
@@ -64,6 +70,11 @@ public class TicketMaster {
 
     public ArrayList<Show> byCity(String city) {
         boolean hasCity = false;
+        System.out.print("Date\t\t" + "Price\t\t" + "Qty\t\t" + "Performer\t\t\t" + "City\n");
+        for (int i = 0; i < 70; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
         for (int i = 0; i < showList.size(); i++) {
             if (showList.get(i).getCity().equalsIgnoreCase(city)) {
                 hasCity = true;
@@ -73,6 +84,8 @@ public class TicketMaster {
 
         if (!hasCity)
             System.out.println("No shows are in that city");
+
+        System.out.println();
 
         return showList;
     }
