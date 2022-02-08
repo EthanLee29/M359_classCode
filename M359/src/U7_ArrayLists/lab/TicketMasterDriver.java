@@ -16,23 +16,18 @@ public class TicketMasterDriver {
     public static void main(String[] args) throws FileNotFoundException {
         TicketMaster tMaster = new TicketMaster();
         tMaster.readData();
-        //System.out.println(tMaster);
         System.out.println("\t\t\t\t\t**** Welcome to the Ticket Master Kiosk ****");
         tMaster.display();
 
         Scanner in = new Scanner(System.in);
-
-
-//        tMaster.byCity("Chicago");
-//        tMaster.byCity("Chucagah");
-//        tMaster.aToZ(tMaster.getShowList());
-//        tMaster.zToA(tMaster.getShowList());
-//        tMaster.byPriceLow(tMaster.getShowList());
-//        tMaster.byPriceHigh(tMaster.getShowList());
-        //System.out.println(tMaster);
-
         choices(in, tMaster);
     }
+
+    /**
+     * This method gets the user's choice and returns it if the input is valid
+     * @param input user input
+     * @return int
+     */
     public static int getUserChoice(Scanner input) {
         /*
         ask the user for their choice
@@ -45,9 +40,10 @@ public class TicketMasterDriver {
         //when quit say input.close
         int choice = -1;
         boolean tryAgain = true;
+
+        System.out.println("Enter a value (1-6)");
         while(tryAgain) {
             try {
-                System.out.println("Enter a value (1-6)");
                 choice = input.nextInt();
                 if(choice > 6 || choice < 1) {
                     System.out.println("Enter a value within the range 1-6");
@@ -67,6 +63,11 @@ public class TicketMasterDriver {
         return choice;
     }
 
+    /**
+     * This method uses getUserChoice and executes the corresponding method
+     * @param s Scanner input
+     * @param tM TicketMaster object
+     */
     public static void choices(Scanner s, TicketMaster tM) {
         int choice = getUserChoice(s);
         while (choice != QUIT) {
