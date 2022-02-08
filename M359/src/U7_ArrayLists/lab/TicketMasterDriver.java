@@ -21,6 +21,7 @@ public class TicketMasterDriver {
 
         Scanner in = new Scanner(System.in);
         choices(in, tMaster);
+        //System.out.println(tMaster.getShowList().get(2).getCity().equalsIgnoreCase("new york"));
     }
 
     /**
@@ -71,9 +72,11 @@ public class TicketMasterDriver {
     public static void choices(Scanner s, TicketMaster tM) {
         int choice = getUserChoice(s);
         while (choice != QUIT) {
+            s.nextLine();
+
             if (choice == CITY) {
                 System.out.println("Input city of choice");
-                tM.byCity(s.next());
+                tM.byCity(s.nextLine());
             } else if (choice == PERF_A_Z) {
                 tM.aToZ(tM.getShowList());
                 System.out.println(tM);
@@ -90,7 +93,6 @@ public class TicketMasterDriver {
 
             System.out.println();
             tM.display();
-            s.nextLine();
             choice = getUserChoice(s);
         }
         System.out.println("Thank you! Come again soon!");

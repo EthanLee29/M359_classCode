@@ -54,6 +54,9 @@ public class TicketMaster {
         return str;
     }
 
+    /**
+     * This method displays the Ticket Master Menu
+     */
     public void display() {
         System.out.println("You may search our shows by city as well as sort the shows by " +
                 "performer and ticket price");
@@ -68,6 +71,12 @@ public class TicketMaster {
         System.out.println();
     }
 
+    /**
+     * This method takes a String city and prints the shows at that city. If the
+     * String cannot find a match, it prints "No shows are in that city".
+     * @param city String
+     * @return Show list
+     */
     public ArrayList<Show> byCity(String city) {
         boolean hasCity = false;
         System.out.print("Date\t\t" + "Price\t\t" + "Qty\t\t" + "Performer\t\t\t" + "City\n");
@@ -90,6 +99,10 @@ public class TicketMaster {
         return showList;
     }
 
+    /**
+     * Sorts the list of Show objects by performer from A to Z
+     * @param list ArrayList of Show objects
+     */
     public void aToZ(ArrayList<Show> list) {
         for (int i = 0; i < list.size() - 1; i++) {
             int min = i;
@@ -106,6 +119,10 @@ public class TicketMaster {
         }
     }
 
+    /**
+     * Sorts the list of Show objects by performer from Z to A
+     * @param list ArrayList of Show objects
+     */
     public void zToA(ArrayList<Show> list) {
         for (int i = 0; i < list.size() - 1; i++) {
             int min = i;
@@ -122,6 +139,10 @@ public class TicketMaster {
         }
     }
 
+    /**
+     * This method sorts the list of Show objects by price from low to high
+     * @param list ArrayList of Show objects
+     */
     public void byPriceLow(ArrayList<Show> list) {
         for (int i = 1; i < list.size(); i++) {
             Show show = list.get(i);
@@ -137,6 +158,10 @@ public class TicketMaster {
         }
     }
 
+    /**
+     * This method sorts the list of Show objects by price from low to high
+     * @param list ArrayList of Show objects
+     */
     public void byPriceHigh(ArrayList<Show> list) {
         for (int i = 1; i < list.size(); i++) {
             Show show = list.get(i);
