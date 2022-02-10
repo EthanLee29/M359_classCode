@@ -13,6 +13,10 @@ public class Show {
         this.city = city;
     }
 
+    /**
+     * Returns Show object's info in a formatted String
+     * @return String
+     */
     public String toString() {
         String str = "";
         str += date + "\t";

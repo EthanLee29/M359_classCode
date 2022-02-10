@@ -1,6 +1,5 @@
 package U7_ArrayLists.lab;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -21,7 +20,8 @@ public class TicketMasterDriver {
 
         Scanner in = new Scanner(System.in);
         choices(in, tMaster);
-        //System.out.println(tMaster.getShowList().get(2).getCity().equalsIgnoreCase("new york"));
+
+        in.close();
     }
 
     /**
