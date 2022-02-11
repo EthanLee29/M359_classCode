@@ -35,8 +35,15 @@ public class TicketMaster {
             Show s = new Show(aDate, aPrice, aQty, name, aCity);
             showList.add(s);
         }
+
+        showInfo.close();
     }
 
+    /**
+     * This method returns a String containing the TicketMaster object's
+     * information in a neatly formatted manner
+     * @return
+     */
     public String toString() {
         String str = "";
 
