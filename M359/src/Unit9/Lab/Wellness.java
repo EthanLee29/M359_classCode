@@ -7,4 +7,10 @@ public class Wellness extends Workout{
         super(name, num, dur);
         this.numStretch = numStretch;
     }
+
+    public int startExercise() {
+        int mult = (int)(Math.random() * 5) + 5;
+
+        return mult * numStretch;
+    }
 }
