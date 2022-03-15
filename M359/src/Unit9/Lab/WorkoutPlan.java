@@ -1,5 +1,7 @@
 package Unit9.Lab;
 
+import java.util.Scanner;
+
 public class WorkoutPlan {
     private int numComplete, numSkipped, currWeek, nextWO, totalBurned, totalMin;
     private Workout[][] workouts;
@@ -50,5 +52,23 @@ public class WorkoutPlan {
         }
 
         return str;
+    }
+
+    public void workoutNextWeek() {
+        Scanner s = new Scanner(System.in);
+
+        System.out.println("Time to start working out!");
+
+        System.out.println("Type \"Start\" to complete one week of workouts");
+
+        if(s.nextLine().equalsIgnoreCase("start")) {
+            System.out.println("ye");
+        }else{
+            System.out.println("Not ready? Don't worry, you've got this!");
+        }
+    }
+
+    public Workout[][] getWorkouts(){
+        return workouts;
     }
 }
