@@ -12,8 +12,12 @@ public class Workout {
 
     public String toString() {
         String str = "";
-        str += "Workout #" + num +":\t\t";
-        str += name + "\t\t";
+        str += "Workout #" + num +":\t";
+        if (num < 10)
+            str += "\t";
+        str += name + "\t";
+        if (name.length() < 8)
+            str += "\t";
         str += dur;
 
         return str;
