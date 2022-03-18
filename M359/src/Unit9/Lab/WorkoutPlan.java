@@ -70,6 +70,7 @@ public class WorkoutPlan {
                     break;
                 }else{
                     System.out.println("Not ready? Don't worry, you've got this!");
+                    System.out.println("Type \"Start\" to complete one week of workouts");
                     input = s.nextLine();
                 }
             }
@@ -77,7 +78,7 @@ public class WorkoutPlan {
             System.out.println();
             System.out.println("Skipped workouts:");
             boolean noSkip = true;
-            for (int i = 0; i < workouts[currWeek].length - 1; i++) {
+            for (int i = 0; i < workouts[currWeek].length; i++) {
                 int skip = (int)(Math.random() * 10) + 1;
                 if (skip <= 2) {
                     numSkipped++;
@@ -92,21 +93,29 @@ public class WorkoutPlan {
             }
             if (noSkip)
                 System.out.println("No workouts skipped");
+            currWeek++;
             System.out.println();
             printProgress();
-            currWeek++;
+            System.out.println();
         }
     }
 
     public void printProgress() {
-        System.out.println("*** CURRENT PROGRESS ***");
+        if(currWeek == workouts.length) {
+            System.out.println("*** CONGRATULATIONS ***");
+            System.out.println("You have completed your " + workouts.length + " week program!");
+            System.out.println("Here is a summary of your entire plan:");
+            System.out.println();
+        } else {
+            System.out.println("*** CURRENT PROGRESS ***");
+        }
         System.out.println("Number of workouts completed:\t" + numComplete);
         System.out.println("Number of workouts skipped:\t\t" + numSkipped);
         System.out.println("Total minutes of exercise:\t\t" + totalMin);
         System.out.println("Total calories burned:\t\t\t" + totalBurned);
-    }
 
-    public Workout[][] getWorkouts(){
-        return workouts;
+        if(currWeek == workouts.length)
+            System.out.println();
+            System.out.println("We hope you continue to progress towards your fitness goals :)");
     }
 }

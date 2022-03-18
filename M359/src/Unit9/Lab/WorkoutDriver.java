@@ -29,6 +29,7 @@ public class WorkoutDriver {
             try {
                 choice = input.nextInt();
                 if(choice < 1) {
+                    System.out.println("You can do more!");
                     System.out.println("How many weeks would you like to schedule?");
                 }else {
                     tryAgain = false;
