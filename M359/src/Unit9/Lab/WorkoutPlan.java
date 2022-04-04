@@ -5,6 +5,9 @@ import java.util.Scanner;
 public class WorkoutPlan {
     private int numComplete, numSkipped, currWeek, nextWO, totalBurned, totalMin;
     private Workout[][] workouts;
+    private final int CARDIO = 0;
+    private final int STRENGTH = 1;
+    private final int WELLNESS = 2;
 
     public WorkoutPlan(int numWeeks) {
         numComplete = 0;
@@ -15,24 +18,29 @@ public class WorkoutPlan {
         totalMin = 0;
 
         workouts = new Workout[numWeeks][7];
+        fill();
     }
 
+    /**
+     * Fills workout arrayList with Cardio, Strength, and Wellness
+     * workout objects. Each object has an equal chance of getting picked
+     */
     public void fill() {
         for (int i = 0; i < workouts.length; i++) {
             for (int j = 0; j < workouts[i].length; j++) {
                 int rand = (int)(Math.random() * 3);
 
-                if(rand == 0) {
+                if(rand == CARDIO) {
                     int time = (int)(Math.random() * 30) + 10;
                     int speed = (int)(Math.random() * 6) + 1;
                     workouts[i][j] = new Cardio("Running", i * 7 + (j + 1), time, speed);
 
-                }else if(rand == 1) {
+                }else if(rand == STRENGTH) {
                     int time = (int)(Math.random() * 45) + 15;
                     int weight = (int)(Math.random() * 130) + 95;
                     workouts[i][j] = new Strength("Lifting", i * 7 + (j + 1), time, weight);
 
-                }else if(rand == 2) {
+                }else if(rand == WELLNESS) {
                     int time = (int)(Math.random() * 30) + 30;
                     int numStretches = (int)(Math.random() * 4) + 8;
                     workouts[i][j] = new Wellness("Stretching", i * 7 + (j + 1), time, numStretches);
@@ -55,10 +63,16 @@ public class WorkoutPlan {
         return str;
     }
 
+    /**
+     * completes the next week of workouts
+     * shows which workouts the user skipped
+     * and the stats
+     */
     public void workoutNextWeek() {
         Scanner s = new Scanner(System.in);
 
         System.out.println("Time to start working out!");
+        System.out.println("You got this!");
 
         while(currWeek != workouts.length) {
             System.out.println("Type \"Start\" to complete one week of workouts");
@@ -98,8 +112,12 @@ public class WorkoutPlan {
             printProgress();
             System.out.println();
         }
+        s.close();
     }
 
+    /**
+     * prints current progress stats
+     */
     public void printProgress() {
         if(currWeek == workouts.length) {
             System.out.println("*** CONGRATULATIONS ***");

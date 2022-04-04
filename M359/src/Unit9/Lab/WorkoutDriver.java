@@ -11,24 +11,32 @@ public class WorkoutDriver {
         Scanner input = new Scanner(System.in);
         int num = getUserChoice(input);
         WorkoutPlan wP = new WorkoutPlan(num);
-        wP.fill();
         System.out.println("Great, let's take a look at your " + num + " week schedule!");
         System.out.println();
         System.out.println(wP);
 
         wP.workoutNextWeek();
         System.out.println();
+        input.close();
     }
 
+    /**
+     * Gets user input for how many weeks they would
+     * like to work out for
+     * @param input scanner
+     * @return int
+     */
     public static int getUserChoice(Scanner input) {
+        String in;
         int choice = -1;
         boolean tryAgain = true;
 
         System.out.println("How many weeks would you like to schedule?");
         while(tryAgain) {
             try {
-                choice = input.nextInt();
-                if(choice < 1) {
+                in = input.nextLine();
+                choice = Integer.parseInt(in);
+                if(choice < 0) {
                     System.out.println("You can do more!");
                     System.out.println("How many weeks would you like to schedule?");
                 }else {
@@ -40,7 +48,7 @@ public class WorkoutDriver {
                 System.out.println("How many weeks would you like to schedule?");
                 input.nextLine();
             }
-            catch (Exception e) {
+            catch (Exception e){
                 System.out.println("Please try again, enter a valid integer:");
                 System.out.println("How many weeks would you like to schedule?");
                 input.nextLine();

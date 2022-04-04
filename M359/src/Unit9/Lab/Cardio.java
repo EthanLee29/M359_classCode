@@ -9,6 +9,11 @@ public class Cardio extends Workout{
         dist = speed * (getDur() / 60.0);
     }
 
+    /**
+     * Generates random number [80, 140] and
+     * multiplies it by distance to get calories burned
+     * @return calories per mile
+     */
     public int startExercise() {
         int calPerMile = (int)(Math.random() * 60) + 80;
 

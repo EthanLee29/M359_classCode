@@ -8,6 +8,11 @@ public class Wellness extends Workout{
         this.numStretch = numStretch;
     }
 
+    /**
+     * Generates a random number [5,10] and multiplies it
+     * by the number of stretches to get calories burned
+     * @return
+     */
     public int startExercise() {
         int mult = (int)(Math.random() * 5) + 5;
 

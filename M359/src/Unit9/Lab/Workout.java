@@ -10,6 +10,7 @@ public class Workout {
         this.dur = dur;
     }
 
+
     public String toString() {
         String str = "";
         str += "Workout #" + num +":\t";
@@ -23,6 +24,11 @@ public class Workout {
         return str;
     }
 
+    /**
+     * Prints a statement telling the user a workout is starting
+     * and returns 0
+     * @return 0
+     */
     public int startExercise() {
         System.out.println("Starting a workout");
 
